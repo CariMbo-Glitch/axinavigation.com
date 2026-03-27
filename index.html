@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPAN — Global Patient Access Navigator | axinavigation.com</title>
+<meta name="description" content="GPAN maps reimbursement status of 202 innovative drugs across 100 global pharma markets. Real-time market access intelligence for pharma leaders.">
+<meta property="og:title" content="GPAN — Global Patient Access Navigator">
+<meta property="og:description" content="202 drugs. 100 markets. One map. Real-time reimbursement intelligence for pharma.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axinavigation.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a2540;--blue:#4472c4;--green:#70ad47;--yellow:#ffd966;
+  --orange:#ed7d31;--red:#e53935;--light:#f6f9fc;--white:#ffffff;
+  --text:#1a1a2e;--muted:#5a6577;--accent:#1b6ce0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.4rem;font-weight:800;color:var(--navy);letter-spacing:-0.5px}
+.nav-logo span{color:var(--accent);font-weight:400;font-size:0.85rem;margin-left:8px}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.9rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:8px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:white}
+.btn-primary:hover{background:#1557b8;transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,108,224,0.3)}
+.btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn-outline:hover{background:var(--accent);color:white}
+
+/* HERO */
+.hero{padding:140px 2rem 80px;text-align:center;background:linear-gradient(180deg,#f0f5ff 0%,var(--white) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:60px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(68,114,196,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 16px;background:rgba(27,108,224,0.08);color:var(--accent);border-radius:50px;font-size:0.82rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:0.5px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:var(--navy);line-height:1.12;max-width:800px;margin:0 auto 1.2rem;letter-spacing:-1.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),#4472c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.4rem;font-weight:800;color:var(--navy)}
+.hero-stat .label{font-size:0.85rem;color:var(--muted);margin-top:2px}
+
+/* SCREENSHOT */
+.screenshot-section{padding:0 2rem 80px;text-align:center}
+.screenshot-wrapper{max-width:1100px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(10,37,64,0.12),0 4px 20px rgba(10,37,64,0.06);border:1px solid rgba(0,0,0,0.06)}
+.screenshot-wrapper img{width:100%;display:block}
+
+/* COLOR LEGEND BAR */
+.legend-bar{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:2rem;background:var(--light);border-radius:12px;max-width:900px;margin:2rem auto 0}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--muted);font-weight:500}
+.legend-dot{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+
+/* VALUE PROPS */
+.value-section{padding:100px 2rem;background:var(--white)}
+.section-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+.section-header h2{font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:0.8rem;letter-spacing:-0.8px}
+.section-header p{font-size:1.05rem;color:var(--muted)}
+.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.value-card{padding:2rem;border-radius:14px;background:var(--light);border:1px solid rgba(0,0,0,0.04);transition:all 0.3s}
+.value-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,37,64,0.08)}
+.value-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+.value-card h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
+.value-card p{font-size:0.92rem;color:var(--muted);line-height:1.65}
+
+/* AUDIENCE */
+.audience-section{padding:100px 2rem;background:var(--light)}
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.audience-card{background:var(--white);padding:1.8rem;border-radius:12px;border:1px solid rgba(0,0,0,0.05)}
+.audience-card .role{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:0.5rem}
+.audience-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
+.audience-card p{font-size:0.88rem;color:var(--muted);line-height:1.6}
+
+/* DIFFERENTIATOR */
+.diff-section{padding:100px 2rem;background:var(--white)}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;align-items:center}
+.diff-before h3,.diff-after h3{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
+.diff-before h3{color:var(--muted)}
+.diff-after h3{color:var(--accent)}
+.diff-list{list-style:none;padding:0}
+.diff-list li{padding:0.6rem 0;font-size:0.92rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.diff-list li::before{content:'✕';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
+.diff-after .diff-list li::before{content:'✓';color:var(--green)}
+
+/* CTA */
+.cta-section{padding:100px 2rem;background:linear-gradient(135deg,var(--navy) 0%,#142f54 100%);text-align:center;color:white}
+.cta-section h2{font-size:2.2rem;font-weight:800;margin-bottom:1rem;letter-spacing:-0.5px}
+.cta-section p{font-size:1.1rem;opacity:0.8;max-width:550px;margin:0 auto 2.5rem}
+.cta-section .btn-primary{background:white;color:var(--navy);font-size:1rem;padding:14px 36px}
+.cta-section .btn-primary:hover{background:#f0f5ff;box-shadow:0 4px 20px rgba(255,255,255,0.2)}
+
+/* FOOTER */
+footer{padding:2.5rem 2rem;background:var(--navy);text-align:center;color:rgba(255,255,255,0.5);font-size:0.82rem}
+footer a{color:rgba(255,255,255,0.7);text-decoration:none}
+
+/* FORM */
+.signup-form{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto}
+.signup-form input{padding:14px 20px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:white;border-radius:8px;font-size:0.95rem;flex:1;min-width:220px;outline:none;font-family:inherit}
+.signup-form input::placeholder{color:rgba(255,255,255,0.4)}
+.signup-form input:focus{border-color:rgba(255,255,255,0.4)}
+
+@media(max-width:768px){
+  nav{padding:0 1rem}
+  .nav-links{display:none}
+  .hero h1{font-size:2rem}
+  .hero-stats{gap:1.5rem}
+  .diff-grid{grid-template-columns:1fr}
+  .hero-cta{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">GPAN <span>by Axi Navigation</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#who">Who It's For</a>
+    <a href="#why">Why GPAN</a>
+    <a href="#access" class="btn btn-primary">Request Early Access</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">NOW IN EARLY ACCESS</div>
+  <h1>See where your drug stands — <em>across 100 markets</em></h1>
+  <p>GPAN maps the reimbursement status of 202 innovative drugs across 100 global pharma markets. One interactive map. Real-time intelligence. No spreadsheet hunting.</p>
+  <div class="hero-cta">
+    <a href="#access" class="btn btn-primary">Request Early Access →</a>
+    <a href="#features" class="btn btn-outline">See How It Works</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">202</div><div class="label">Drugs Tracked</div></div>
+    <div class="hero-stat"><div class="num">100</div><div class="label">Global Markets</div></div>
+    <div class="hero-stat"><div class="num">20,200</div><div class="label">Drug–Market Pairs</div></div>
+    <div class="hero-stat"><div class="num">5</div><div class="label">Reimbursement Statuses</div></div>
+  </div>
+</section>
+
+<section class="screenshot-section" id="features">
+  <div class="screenshot-wrapper">
+    <img src="gpan-app-screenshot.png" alt="GPAN Global Patient Access Navigator — interactive world map showing reimbursement status of Opdivo across 100 markets" loading="lazy">
+  </div>
+  <div class="legend-bar">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Fully Reimbursed</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Partially Reimbursed</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div>Under Appraisal</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Not Submitted</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Declined</div>
+  </div>
+</section>
+
+<section class="value-section">
+  <div class="section-header">
+    <h2>Market access intelligence — in 10 seconds, not 10 days</h2>
+    <p>Filter by therapeutic area, drug category, manufacturer, or launch year. Click any drug and see its global reimbursement map instantly.</p>
+  </div>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(68,114,196,0.1)">🗺️</div>
+      <h3>Interactive World Map</h3>
+      <p>Color-coded reimbursement status for every drug across 100 countries. Hover for details. Spot patterns no spreadsheet reveals.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(112,173,71,0.1)">⚡</div>
+      <h3>Instant Filtering</h3>
+      <p>Search by brand or INN. Filter by therapeutic area, category, manufacturer, or launch year. Find what you need in seconds.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(237,125,49,0.1)">📊</div>
+      <h3>Portfolio-Level View</h3>
+      <p>See your entire portfolio's global coverage at a glance. Identify gaps, compare competitors, and prioritize where to invest next.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(255,217,102,0.15)">🎯</div>
+      <h3>White Space Detection</h3>
+      <p>"Not Submitted" is the biggest barrier — not "Declined." GPAN shows where submission strategy matters most.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(229,57,53,0.08)">🔄</div>
+      <h3>Competitive Benchmarking</h3>
+      <p>See where competitors have access you don't. Benchmark reimbursement speed across therapeutic areas and market tiers.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon" style="background:rgba(10,37,64,0.06)">📋</div>
+      <h3>Drug Detail Cards</h3>
+      <p>INN, therapeutic area, category, manufacturer, launch year, peak revenue, and annual cost — all at your fingertips for every drug.</p>
+    </div>
+  </div>
+</section>
+
+<section class="audience-section" id="who">
+  <div class="section-header">
+    <h2>Built for the people who move the needle</h2>
+    <p>Whether you're setting strategy or executing on the ground, GPAN gives you the view you need.</p>
+  </div>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="role">CEO & Board</div>
+      <h3>Portfolio coverage at a glance</h3>
+      <p>See where your portfolio reaches patients — and where it doesn't. Prioritize the next dollar of market access investment by patient impact.</p>
+    </div>
+    <div class="audience-card">
+      <div class="role">Global Access & HEOR</div>
+      <h3>Stop rebuilding landscapes</h3>
+      <p>GPAN gives you the baseline so your team focuses on HTA strategy, not data collection. Know exactly where evidence packages are needed most.</p>
+    </div>
+    <div class="audience-card">
+      <div class="role">Commercial & Marketing</div>
+      <h3>Launch with reimbursement reality</h3>
+      <p>Align launch sequencing with market readiness. Know which markets are ready, stalled, or where competitors already have access you don't.</p>
+    </div>
+    <div class="audience-card">
+      <div class="role">Patient Advocacy & Comms</div>
+      <h3>Make access gaps visible</h3>
+      <p>When 45 of 100 markets show "Not Submitted" for a life-saving therapy, that's not a data point — it's a call to action. Turn data into narrative.</p>
+    </div>
+  </div>
+</section>
+
+<section class="diff-section" id="why">
+  <div class="section-header">
+    <h2>Why GPAN over existing tools?</h2>
+    <p>Most intelligence platforms tell you what happened. GPAN shows you what's happening — and where the white space is.</p>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-before">
+      <h3>Traditional Intelligence</h3>
+      <ul class="diff-list">
+        <li>Quarterly PDF reports, outdated on arrival</li>
+        <li>Five database logins for five different views</li>
+        <li>Analyst-level subscriptions, analyst-level complexity</li>
+        <li>Weeks to compile a global landscape</li>
+        <li>80-slide decks that lose the C-suite by slide 12</li>
+      </ul>
+    </div>
+    <div class="diff-after">
+      <h3>GPAN Intelligence</h3>
+      <ul class="diff-list">
+        <li>Interactive map updated in real time</li>
+        <li>One platform, one view, one click</li>
+        <li>Built for decision-makers, not just analysts</li>
+        <li>10 seconds to see any drug's global status</li>
+        <li>One map that tells the story instantly</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="access">
+  <h2>Request early access</h2>
+  <p>GPAN is opening to 100 pharma leaders. Enter your work email and we'll be in touch within 48 hours.</p>
+  <form class="signup-form" action="https://formspree.io/f/YOURFORMID" method="POST">
+    <input type="email" name="email" placeholder="Your work email" required>
+    <button type="submit" class="btn btn-primary">Get Access →</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Axi Navigation — Global Patient Access Navigator (GPAN)</p>
+  <p style="margin-top:6px"><a href="mailto:marcello.scattolini@proton.me">Contact</a></p>
+</footer>
+
+</body>
+</html>
