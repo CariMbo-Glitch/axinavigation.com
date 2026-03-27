@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPAN — Global Patient Access Navigator | axinavigation.com</title>
+<title>GPAN â Global Patient Access Navigator | axinavigation.com</title>
 <meta name="description" content="GPAN maps reimbursement status of 202 innovative drugs across 100 global pharma markets. Real-time market access intelligence for pharma leaders.">
-<meta property="og:title" content="GPAN — Global Patient Access Navigator">
+<meta property="og:title" content="GPAN â Global Patient Access Navigator">
 <meta property="og:description" content="202 drugs. 100 markets. One map. Real-time reimbursement intelligence for pharma.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://axinavigation.com">
@@ -86,8 +86,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .diff-after h3{color:var(--accent)}
 .diff-list{list-style:none;padding:0}
 .diff-list li{padding:0.6rem 0;font-size:0.92rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.diff-list li::before{content:'✕';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
-.diff-after .diff-list li::before{content:'✓';color:var(--green)}
+.diff-list li::before{content:'â';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
+.diff-after .diff-list li::before{content:'â';color:var(--green)}
+
+/* SPEED BANNER */
+.speed-section{padding:80px 2rem;background:var(--white);text-align:center}
+.speed-grid{display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;max-width:900px;margin:2.5rem auto 0}
+.speed-item{text-align:center}
+.speed-item .time{font-size:2.8rem;font-weight:800;letter-spacing:-1px}
+.speed-item .time.old{color:var(--muted);text-decoration:line-through;opacity:0.5}
+.speed-item .time.new{color:var(--accent)}
+.speed-item .desc{font-size:0.9rem;color:var(--muted);margin-top:4px}
+
+/* PRICING */
+.pricing-section{padding:100px 2rem;background:var(--light)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.pricing-card{background:var(--white);border-radius:16px;padding:2.5rem;border:2px solid rgba(0,0,0,0.06);position:relative;transition:all 0.3s}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,37,64,0.1)}
+.pricing-card.featured{border-color:var(--accent);box-shadow:0 8px 32px rgba(27,108,224,0.12)}
+.pricing-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;padding:4px 18px;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.5px;white-space:nowrap}
+.pricing-card .plan-name{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:0.5rem}
+.pricing-card .plan-price{font-size:2.4rem;font-weight:800;color:var(--navy);margin-bottom:0.2rem;letter-spacing:-1px}
+.pricing-card .plan-price span{font-size:1rem;font-weight:500;color:var(--muted)}
+.pricing-card .plan-period{font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem}
+.pricing-card .plan-desc{font-size:0.92rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;padding-bottom:1.5rem;border-bottom:1px solid rgba(0,0,0,0.06)}
+.plan-features{list-style:none;padding:0;margin-bottom:2rem}
+.plan-features li{padding:0.45rem 0;font-size:0.88rem;color:var(--text);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.plan-features li::before{content:'â';color:var(--green);font-weight:700;flex-shrink:0}
+.pricing-card .btn{width:100%;justify-content:center;padding:12px 24px}
+.pricing-card.featured .btn-primary{background:var(--accent);color:white}
 
 /* CTA */
 .cta-section{padding:100px 2rem;background:linear-gradient(135deg,var(--navy) 0%,#142f54 100%);text-align:center;color:white}
@@ -95,6 +122,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .cta-section p{font-size:1.1rem;opacity:0.8;max-width:550px;margin:0 auto 2.5rem}
 .cta-section .btn-primary{background:white;color:var(--navy);font-size:1rem;padding:14px 36px}
 .cta-section .btn-primary:hover{background:#f0f5ff;box-shadow:0 4px 20px rgba(255,255,255,0.2)}
+.cta-email{font-size:1.15rem;margin-top:1.5rem;opacity:0.9}
+.cta-email a{color:white;text-decoration:underline;text-underline-offset:3px}
 
 /* FOOTER */
 footer{padding:2.5rem 2rem;background:var(--navy);text-align:center;color:rgba(255,255,255,0.5);font-size:0.82rem}
@@ -124,29 +153,30 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
     <a href="#features">Features</a>
     <a href="#who">Who It's For</a>
     <a href="#why">Why GPAN</a>
+    <a href="#pricing">Plans</a>
     <a href="#access" class="btn btn-primary">Request Early Access</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-badge">NOW IN EARLY ACCESS</div>
-  <h1>See where your drug stands — <em>across 100 markets</em></h1>
+  <h1>See where your drug stands â <em>across 100 markets</em></h1>
   <p>GPAN maps the reimbursement status of 202 innovative drugs across 100 global pharma markets. One interactive map. Real-time intelligence. No spreadsheet hunting.</p>
   <div class="hero-cta">
-    <a href="#access" class="btn btn-primary">Request Early Access →</a>
+    <a href="#access" class="btn btn-primary">Request Early Access â</a>
     <a href="#features" class="btn btn-outline">See How It Works</a>
   </div>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">202</div><div class="label">Drugs Tracked</div></div>
     <div class="hero-stat"><div class="num">100</div><div class="label">Global Markets</div></div>
-    <div class="hero-stat"><div class="num">20,200</div><div class="label">Drug–Market Pairs</div></div>
+    <div class="hero-stat"><div class="num">20,200</div><div class="label">DrugâMarket Pairs</div></div>
     <div class="hero-stat"><div class="num">5</div><div class="label">Reimbursement Statuses</div></div>
   </div>
 </section>
 
 <section class="screenshot-section" id="features">
   <div class="screenshot-wrapper">
-    <img src="gpan-app-screenshot.png" alt="GPAN Global Patient Access Navigator — interactive world map showing reimbursement status of Opdivo across 100 markets" loading="lazy">
+    <img src="gpan-app-screenshot.png" alt="GPAN Global Patient Access Navigator â interactive world map showing reimbursement status of Opdivo across 100 markets" loading="lazy">
   </div>
   <div class="legend-bar">
     <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Fully Reimbursed</div>
@@ -159,39 +189,39 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
 
 <section class="value-section">
   <div class="section-header">
-    <h2>Market access intelligence — in 10 seconds, not 10 days</h2>
+    <h2>Market access intelligence â in 10 seconds, not 10 days</h2>
     <p>Filter by therapeutic area, drug category, manufacturer, or launch year. Click any drug and see its global reimbursement map instantly.</p>
   </div>
   <div class="value-grid">
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(68,114,196,0.1)">🗺️</div>
+      <div class="value-icon" style="background:rgba(68,114,196,0.1)">ðºï¸</div>
       <h3>Interactive World Map</h3>
       <p>Color-coded reimbursement status for every drug across 100 countries. Hover for details. Spot patterns no spreadsheet reveals.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(112,173,71,0.1)">⚡</div>
+      <div class="value-icon" style="background:rgba(112,173,71,0.1)">â¡</div>
       <h3>Instant Filtering</h3>
       <p>Search by brand or INN. Filter by therapeutic area, category, manufacturer, or launch year. Find what you need in seconds.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(237,125,49,0.1)">📊</div>
+      <div class="value-icon" style="background:rgba(237,125,49,0.1)">ð</div>
       <h3>Portfolio-Level View</h3>
       <p>See your entire portfolio's global coverage at a glance. Identify gaps, compare competitors, and prioritize where to invest next.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(255,217,102,0.15)">🎯</div>
+      <div class="value-icon" style="background:rgba(255,217,102,0.15)">ð¯</div>
       <h3>White Space Detection</h3>
-      <p>"Not Submitted" is the biggest barrier — not "Declined." GPAN shows where submission strategy matters most.</p>
+      <p>"Not Submitted" is the biggest barrier â not "Declined." GPAN shows where submission strategy matters most.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(229,57,53,0.08)">🔄</div>
+      <div class="value-icon" style="background:rgba(229,57,53,0.08)">ð</div>
       <h3>Competitive Benchmarking</h3>
       <p>See where competitors have access you don't. Benchmark reimbursement speed across therapeutic areas and market tiers.</p>
     </div>
     <div class="value-card">
-      <div class="value-icon" style="background:rgba(10,37,64,0.06)">📋</div>
+      <div class="value-icon" style="background:rgba(10,37,64,0.06)">ð</div>
       <h3>Drug Detail Cards</h3>
-      <p>INN, therapeutic area, category, manufacturer, launch year, peak revenue, and annual cost — all at your fingertips for every drug.</p>
+      <p>INN, therapeutic area, category, manufacturer, launch year, peak revenue, and annual cost â all at your fingertips for every drug.</p>
     </div>
   </div>
 </section>
@@ -205,7 +235,7 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
     <div class="audience-card">
       <div class="role">CEO & Board</div>
       <h3>Portfolio coverage at a glance</h3>
-      <p>See where your portfolio reaches patients — and where it doesn't. Prioritize the next dollar of market access investment by patient impact.</p>
+      <p>See where your portfolio reaches patients â and where it doesn't. Prioritize the next dollar of market access investment by patient impact.</p>
     </div>
     <div class="audience-card">
       <div class="role">Global Access & HEOR</div>
@@ -220,7 +250,7 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
     <div class="audience-card">
       <div class="role">Patient Advocacy & Comms</div>
       <h3>Make access gaps visible</h3>
-      <p>When 45 of 100 markets show "Not Submitted" for a life-saving therapy, that's not a data point — it's a call to action. Turn data into narrative.</p>
+      <p>When 45 of 100 markets show "Not Submitted" for a life-saving therapy, that's not a data point â it's a call to action. Turn data into narrative.</p>
     </div>
   </div>
 </section>
@@ -228,7 +258,7 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
 <section class="diff-section" id="why">
   <div class="section-header">
     <h2>Why GPAN over existing tools?</h2>
-    <p>Most intelligence platforms tell you what happened. GPAN shows you what's happening — and where the white space is.</p>
+    <p>Most intelligence platforms tell you what happened. GPAN shows you what's happening â and where the white space is.</p>
   </div>
   <div class="diff-grid">
     <div class="diff-before">
@@ -254,18 +284,91 @@ footer a{color:rgba(255,255,255,0.7);text-decoration:none}
   </div>
 </section>
 
+<section class="speed-section">
+  <div class="section-header">
+    <h2>Get answers in days, not months</h2>
+    <p>Traditional consulting engagements take 8â12 weeks and $150K+ to deliver a global reimbursement landscape. GPAN intelligence reports deliver the same insight â faster, sharper, and at a fraction of the cost.</p>
+  </div>
+  <div class="speed-grid">
+    <div class="speed-item">
+      <div class="time old">8â12 weeks</div>
+      <div class="desc">Traditional consulting</div>
+    </div>
+    <div class="speed-item">
+      <div class="time new">5 business days</div>
+      <div class="desc">GPAN intelligence report</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="section-header">
+    <h2>Intelligence reports, not software licenses</h2>
+    <p>We deliver board-ready market access intelligence reports tailored to your portfolio. Pick the plan that fits your decision cycle.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="plan-name">Essentials</div>
+      <div class="plan-price">$5,000 <span>per report</span></div>
+      <div class="plan-period">One-time delivery</div>
+      <div class="plan-desc">A focused snapshot for a single drug across all 100 markets â ideal for launch planning or board presentations.</div>
+      <ul class="plan-features">
+        <li>Single drug Ã 100 markets</li>
+        <li>Reimbursement status + HTA timeline</li>
+        <li>Competitive positioning overview</li>
+        <li>PDF report + Excel data export</li>
+        <li>Delivered in 5 business days</li>
+      </ul>
+      <a href="mailto:contact@axinavigation.com?subject=GPAN Essentials â Inquiry" class="btn btn-outline">Get Started</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">MOST POPULAR</div>
+      <div class="plan-name">Professional</div>
+      <div class="plan-price">$15,000 <span>/ quarter</span></div>
+      <div class="plan-period">Billed quarterly</div>
+      <div class="plan-desc">Ongoing intelligence for teams managing multi-drug portfolios â with competitive overlays and strategic recommendations.</div>
+      <ul class="plan-features">
+        <li>Up to 15 drugs per quarter</li>
+        <li>Competitive landscape overlay</li>
+        <li>Quarterly trend + gap analysis</li>
+        <li>Launch sequencing recommendations</li>
+        <li>Dedicated analyst support</li>
+        <li>PDF + Excel + PowerPoint deliverables</li>
+      </ul>
+      <a href="mailto:contact@axinavigation.com?subject=GPAN Professional â Inquiry" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-price">$48,000 <span>/ year</span></div>
+      <div class="plan-period">Billed annually</div>
+      <div class="plan-desc">Full portfolio intelligence for global pharma teams â unlimited drugs, monthly updates, and executive-level strategy support.</div>
+      <ul class="plan-features">
+        <li>Full portfolio â unlimited drugs</li>
+        <li>Monthly updated reports</li>
+        <li>Custom deep-dives by TA or region</li>
+        <li>Board-ready executive summaries</li>
+        <li>Priority analyst access</li>
+        <li>Quarterly strategy calls</li>
+      </ul>
+      <a href="mailto:contact@axinavigation.com?subject=GPAN Enterprise â Inquiry" class="btn btn-outline">Get Started</a>
+    </div>
+
+  </div>
+</section>
+
 <section class="cta-section" id="access">
-  <h2>Request early access</h2>
-  <p>GPAN is opening to 100 pharma leaders. Enter your work email and we'll be in touch within 48 hours.</p>
-  <form class="signup-form" action="https://formspree.io/f/YOURFORMID" method="POST">
-    <input type="email" name="email" placeholder="Your work email" required>
-    <button type="submit" class="btn btn-primary">Get Access →</button>
-  </form>
+  <h2>Ready to see your portfolio's global access landscape?</h2>
+  <p>Request a sample report or schedule a 15-minute walkthrough with our team. We respond within 24 hours.</p>
+  <a href="mailto:contact@axinavigation.com?subject=GPAN Early Access â Request" class="btn btn-primary">Request Early Access â</a>
+  <div class="cta-email">Or email us directly at <a href="mailto:contact@axinavigation.com">contact@axinavigation.com</a></div>
 </section>
 
 <footer>
-  <p>© 2026 Axi Navigation — Global Patient Access Navigator (GPAN)</p>
-  <p style="margin-top:6px"><a href="mailto:marcello.scattolini@proton.me">Contact</a></p>
+  <p>Â© 2026 Axi Navigation â Global Patient Access Navigator (GPAN)</p>
+  <p style="margin-top:6px"><a href="mailto:contact@axinavigation.com">contact@axinavigation.com</a></p>
 </footer>
 
 </body>
