@@ -3,373 +3,972 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPAN â Global Patient Access Navigator | axinavigation.com</title>
-<meta name="description" content="GPAN maps reimbursement status of 202 innovative drugs across 100 global pharma markets. Real-time market access intelligence for pharma leaders.">
-<meta property="og:title" content="GPAN â Global Patient Access Navigator">
-<meta property="og:description" content="202 drugs. 100 markets. One map. Real-time reimbursement intelligence for pharma.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://axinavigation.com">
+<title>Navigation Axi — Global Health Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0a2540;--blue:#4472c4;--green:#70ad47;--yellow:#ffd966;
-  --orange:#ed7d31;--red:#e53935;--light:#f6f9fc;--white:#ffffff;
-  --text:#1a1a2e;--muted:#5a6577;--accent:#1b6ce0;
+/* ================================================================
+   NAVIGATION AXI — GLOBAL HEALTH INTELLIGENCE PLATFORM
+   Executive Navy Style · Final Production Build
+   ================================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #3b4555;
+  background: #ffffff;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  color: #1a2744;
+  line-height: 1.2;
+  font-weight: 600;
+}
+p { color: #4a5568; }
+a { text-decoration: none; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:1.4rem;font-weight:800;color:var(--navy);letter-spacing:-0.5px}
-.nav-logo span{color:var(--accent);font-weight:400;font-size:0.85rem;margin-left:8px}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.9rem;font-weight:500;transition:color 0.2s}
-.nav-links a:hover{color:var(--navy)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:8px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none}
-.btn-primary{background:var(--accent);color:white}
-.btn-primary:hover{background:#1557b8;transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,108,224,0.3)}
-.btn-outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
-.btn-outline:hover{background:var(--accent);color:white}
+/* === NAVBAR === */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10, 20, 45, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 0 60px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(200,175,100,0.15);
+}
+.nav-logo { display: flex; align-items: center; gap: 14px; }
+.nav-logo svg { height: 42px; width: auto; }
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: #ffffff; letter-spacing: 0.3px;
+}
+.nav-logo-text span { color: #c8af64; }
+nav { display: flex; align-items: center; gap: 36px; }
+nav a {
+  font-family: 'Lato', sans-serif; font-weight: 400; font-size: 12px;
+  color: rgba(255,255,255,0.65); letter-spacing: 1.4px;
+  text-transform: uppercase; transition: color 0.25s;
+}
+nav a:hover { color: #c8af64; }
+.nav-cta {
+  background: transparent; border: 1px solid #c8af64;
+  color: #c8af64 !important; padding: 9px 22px; border-radius: 2px;
+  font-size: 11px !important; letter-spacing: 1.5px !important;
+  transition: all 0.25s !important;
+}
+.nav-cta:hover { background: #c8af64 !important; color: #0a1a2d !important; }
 
-/* HERO */
-.hero{padding:140px 2rem 80px;text-align:center;background:linear-gradient(180deg,#f0f5ff 0%,var(--white) 100%);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:60px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(68,114,196,0.06) 0%,transparent 70%);pointer-events:none}
-.hero-badge{display:inline-block;padding:6px 16px;background:rgba(27,108,224,0.08);color:var(--accent);border-radius:50px;font-size:0.82rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:0.5px}
-.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:var(--navy);line-height:1.12;max-width:800px;margin:0 auto 1.2rem;letter-spacing:-1.5px}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),#4472c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
-.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3.5rem;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat .num{font-size:2.4rem;font-weight:800;color:var(--navy)}
-.hero-stat .label{font-size:0.85rem;color:var(--muted);margin-top:2px}
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0a1428 0%, #0d2046 50%, #0a1428 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 140px 60px 100px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(200,175,100,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(29,78,216,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; }
+.hero-eyebrow {
+  display: inline-block; font-family: 'Lato', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: #c8af64; margin-bottom: 28px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: inline-block; width: 36px; height: 1px;
+  background: rgba(200,175,100,0.5); vertical-align: middle; margin: 0 14px;
+}
+.hero h1 {
+  font-size: clamp(44px, 5.5vw, 78px); font-weight: 600;
+  color: #ffffff; margin: 0 auto 32px; line-height: 1.08;
+}
+.hero h1 em { font-style: italic; color: #c8af64; }
+.hero-sub {
+  font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.55);
+  max-width: 620px; margin: 0 auto 52px; line-height: 1.8;
+}
+.hero-actions { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.btn-gold {
+  background: #c8af64; color: #0a1428;
+  font-family: 'Lato', sans-serif; font-weight: 700;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 16px 36px; border-radius: 2px;
+  transition: all 0.25s; border: 1px solid #c8af64;
+}
+.btn-gold:hover { background: #dbc47a; }
+.btn-outline-w {
+  background: transparent; color: #ffffff;
+  font-family: 'Lato', sans-serif; font-weight: 400;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 16px 36px; border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.3); transition: all 0.25s;
+}
+.btn-outline-w:hover { border-color: #fff; background: rgba(255,255,255,0.04); }
+.hero-stats {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; justify-content: center;
+  border-top: 1px solid rgba(200,175,100,0.12);
+}
+.stat-item {
+  padding: 26px 52px; text-align: center;
+  border-right: 1px solid rgba(200,175,100,0.12);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: #c8af64; line-height: 1;
+}
+.stat-label {
+  font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.38); margin-top: 6px;
+}
 
-/* SCREENSHOT */
-.screenshot-section{padding:0 2rem 80px;text-align:center}
-.screenshot-wrapper{max-width:1100px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(10,37,64,0.12),0 4px 20px rgba(10,37,64,0.06);border:1px solid rgba(0,0,0,0.06)}
-.screenshot-wrapper img{width:100%;display:block}
+/* === COST OF INACTION === */
+.coi-section {
+  padding: 110px 60px;
+  background: #f9f7f2;
+  position: relative;
+  overflow: hidden;
+}
+.coi-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c8af64 0%, #1a2744 50%, #c8af64 100%);
+}
+.coi-header {
+  text-align: center; max-width: 780px; margin: 0 auto 70px;
+}
+.eyebrow {
+  font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: #c8af64;
+  margin-bottom: 20px;
+}
+.coi-header h2 {
+  font-size: clamp(30px, 3.5vw, 50px); color: #1a2744; margin-bottom: 20px;
+}
+.coi-header p { font-size: 16px; color: #6b7a8d; line-height: 1.8; }
+.coi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0; max-width: 1140px; margin: 0 auto;
+  border: 1px solid #e0dbd0; border-radius: 3px; overflow: hidden;
+}
+.coi-card {
+  padding: 44px 36px; background: #ffffff;
+  border-right: 1px solid #e0dbd0;
+  position: relative;
+}
+.coi-card:nth-child(3n) { border-right: none; }
+.coi-card:nth-child(n+4) { border-top: 1px solid #e0dbd0; }
+.coi-icon { font-size: 28px; margin-bottom: 18px; }
+.coi-figure {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 700; color: #c53030; line-height: 1; margin-bottom: 10px;
+}
+.coi-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; color: #1a2744; margin-bottom: 12px;
+}
+.coi-card p { font-size: 13.5px; color: #6b7a8d; line-height: 1.65; }
+.coi-source {
+  font-size: 10px; letter-spacing: 0.5px; color: #b0a890;
+  margin-top: 12px; font-style: italic;
+}
 
-/* COLOR LEGEND BAR */
-.legend-bar{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;padding:2rem;background:var(--light);border-radius:12px;max-width:900px;margin:2rem auto 0}
-.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--muted);font-weight:500}
-.legend-dot{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+/* === SERVICES === */
+.services-section { padding: 120px 60px; background: #ffffff; }
+.section-header {
+  text-align: center; max-width: 720px; margin: 0 auto 80px;
+}
+.section-header h2 {
+  font-size: clamp(30px, 3.5vw, 50px); color: #1a2744; margin-bottom: 20px;
+}
+.section-header p { font-size: 16px; color: #6b7a8d; line-height: 1.8; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: #e8edf4; max-width: 1180px; margin: 0 auto;
+}
+.service-card {
+  background: #ffffff; padding: 50px 40px;
+  transition: all 0.3s; position: relative; overflow: hidden; cursor: pointer;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 0; background: #c8af64; transition: height 0.4s ease;
+}
+.service-card:hover::before { height: 100%; }
+.service-card:hover { background: #faf8f4; }
+.svc-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: #c8af64;
+  background: rgba(200,175,100,0.1); padding: 5px 12px;
+  border-radius: 2px; margin-bottom: 24px;
+}
+.service-card h3 { font-size: 28px; color: #1a2744; margin-bottom: 6px; }
+.svc-subtitle {
+  font-size: 13px; color: #c8af64; font-weight: 400;
+  letter-spacing: 0.5px; margin-bottom: 24px;
+}
+.pain-box {
+  background: #fff8f8; border-left: 3px solid #e53e3e;
+  padding: 14px 16px; margin-bottom: 18px; border-radius: 0 4px 4px 0;
+}
+.pain-box .pain-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #e53e3e; margin-bottom: 6px;
+}
+.pain-box p { font-size: 13px; color: #4a5568; line-height: 1.55; }
+.pain-box strong { color: #c53030; }
+.svc-solution {
+  font-size: 13.5px; color: #4a5568; line-height: 1.7;
+  border-top: 1px solid #eef1f6; padding-top: 18px; margin-bottom: 20px;
+}
+.view-plans-btn {
+  display: inline-block; font-family: 'Lato', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #1a2744;
+  padding: 10px 20px; border: 1px solid #1a2744; border-radius: 2px;
+  cursor: pointer; transition: all 0.25s; background: transparent;
+}
+.view-plans-btn:hover { background: #1a2744; color: #ffffff; }
 
-/* VALUE PROPS */
-.value-section{padding:100px 2rem;background:var(--white)}
-.section-header{text-align:center;max-width:680px;margin:0 auto 4rem}
-.section-header h2{font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:0.8rem;letter-spacing:-0.8px}
-.section-header p{font-size:1.05rem;color:var(--muted)}
-.value-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
-.value-card{padding:2rem;border-radius:14px;background:var(--light);border:1px solid rgba(0,0,0,0.04);transition:all 0.3s}
-.value-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,37,64,0.08)}
-.value-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
-.value-card h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
-.value-card p{font-size:0.92rem;color:var(--muted);line-height:1.65}
+/* === PRICING MODAL === */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 20, 45, 0.85); backdrop-filter: blur(6px);
+  z-index: 2000; display: none; align-items: center; justify-content: center;
+  padding: 40px;
+}
+.modal-overlay.active { display: flex; }
+.modal-content {
+  background: #ffffff; border-radius: 6px; max-width: 980px; width: 100%;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.modal-header {
+  padding: 40px 48px 28px;
+  border-bottom: 1px solid #eef1f6;
+}
+.modal-header .modal-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #c8af64; margin-bottom: 10px;
+}
+.modal-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 600; color: #1a2744; margin-bottom: 6px;
+}
+.modal-header .modal-subtitle { font-size: 14px; color: #6b7a8d; }
+.modal-close {
+  position: absolute; top: 24px; right: 28px;
+  width: 40px; height: 40px; border: 1px solid #e0e6ed;
+  border-radius: 50%; background: #ffffff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #6b7a8d; transition: all 0.2s;
+}
+.modal-close:hover { background: #1a2744; color: #fff; border-color: #1a2744; }
+.modal-body { padding: 36px 48px 48px; }
+.plans-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.plan-card {
+  border: 1px solid #e0e6ed; border-radius: 4px; padding: 36px 28px;
+  text-align: center; position: relative; transition: all 0.3s;
+}
+.plan-card:hover { border-color: #c8af64; box-shadow: 0 8px 32px rgba(200,175,100,0.15); }
+.plan-card.featured {
+  border-color: #1a2744; box-shadow: 0 8px 32px rgba(26,39,68,0.12);
+}
+.plan-card.featured::before {
+  content: 'Most Popular';
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: #1a2744; color: #c8af64;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 2px;
+}
+.plan-name {
+  font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: #c8af64;
+  margin-bottom: 16px;
+}
+.plan-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700; color: #1a2744; line-height: 1;
+  margin-bottom: 4px;
+}
+.plan-price-sub { font-size: 12px; color: #6b7a8d; margin-bottom: 28px; }
+.plan-features { list-style: none; text-align: left; margin-bottom: 32px; }
+.plan-features li {
+  font-size: 13px; color: #4a5568; padding: 8px 0;
+  border-bottom: 1px solid #f3f5f8;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.plan-features li::before {
+  content: '✓'; color: #c8af64; font-weight: 700; flex-shrink: 0;
+}
+.plan-cta {
+  display: inline-block; width: 100%;
+  font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 14px; border-radius: 2px;
+  text-align: center; transition: all 0.25s; cursor: pointer;
+  border: 1px solid #1a2744; color: #1a2744; background: transparent;
+}
+.plan-cta:hover { background: #1a2744; color: #fff; }
+.plan-card.featured .plan-cta {
+  background: #c8af64; color: #0a1428; border-color: #c8af64;
+}
+.plan-card.featured .plan-cta:hover { background: #dbc47a; }
 
-/* AUDIENCE */
-.audience-section{padding:100px 2rem;background:var(--light)}
-.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
-.audience-card{background:var(--white);padding:1.8rem;border-radius:12px;border:1px solid rgba(0,0,0,0.05)}
-.audience-card .role{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:0.5rem}
-.audience-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
-.audience-card p{font-size:0.88rem;color:var(--muted);line-height:1.6}
+/* === ABOUT STRIP === */
+.about-strip {
+  background: #0a1428; padding: 100px 60px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-text .eyebrow { color: #c8af64; }
+.about-text h2 { font-size: 42px; color: #ffffff; margin-bottom: 24px; }
+.about-text p { color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.9; margin-bottom: 16px; }
+.pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.pillar {
+  padding: 28px 22px; border: 1px solid rgba(200,175,100,0.15);
+  border-radius: 2px; background: rgba(200,175,100,0.03);
+  transition: all 0.2s;
+}
+.pillar:hover { background: rgba(200,175,100,0.07); border-color: rgba(200,175,100,0.3); }
+.pillar-ico { font-size: 24px; margin-bottom: 12px; }
+.pillar h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: #ffffff; margin-bottom: 8px;
+}
+.pillar p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
-/* DIFFERENTIATOR */
-.diff-section{padding:100px 2rem;background:var(--white)}
-.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;align-items:center}
-.diff-before h3,.diff-after h3{font-size:1.1rem;font-weight:700;margin-bottom:1rem}
-.diff-before h3{color:var(--muted)}
-.diff-after h3{color:var(--accent)}
-.diff-list{list-style:none;padding:0}
-.diff-list li{padding:0.6rem 0;font-size:0.92rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.diff-list li::before{content:'â';color:var(--red);font-weight:700;flex-shrink:0;margin-top:1px}
-.diff-after .diff-list li::before{content:'â';color:var(--green)}
+/* === CONTACT === */
+.contact-section {
+  padding: 120px 60px; background: #f9f7f2; text-align: center;
+}
+.contact-section .eyebrow { color: #c8af64; }
+.contact-section h2 { font-size: 48px; color: #1a2744; margin-bottom: 20px; }
+.contact-section > p { font-size: 16px; color: #6b7a8d; max-width: 520px; margin: 0 auto 48px; }
+.contact-form { max-width: 560px; margin: 0 auto; text-align: left; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.fg { margin-bottom: 20px; }
+.fg label {
+  display: block; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #8a9aad; margin-bottom: 8px;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 14px 18px;
+  border: 1px solid #d5d5d5; background: #ffffff; border-radius: 2px;
+  font-family: 'Lato', sans-serif; font-size: 14px; color: #3b4555;
+  outline: none; transition: border-color 0.2s;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: #c8af64; }
+.fg textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%; background: #1a2744; color: #ffffff;
+  font-family: 'Lato', sans-serif; font-weight: 700;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 16px; border: none; border-radius: 2px; cursor: pointer; transition: all 0.25s;
+}
+.form-submit:hover { background: #c8af64; color: #1a2744; }
 
-/* SPEED BANNER */
-.speed-section{padding:80px 2rem;background:var(--white);text-align:center}
-.speed-grid{display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;max-width:900px;margin:2.5rem auto 0}
-.speed-item{text-align:center}
-.speed-item .time{font-size:2.8rem;font-weight:800;letter-spacing:-1px}
-.speed-item .time.old{color:var(--muted);text-decoration:line-through;opacity:0.5}
-.speed-item .time.new{color:var(--accent)}
-.speed-item .desc{font-size:0.9rem;color:var(--muted);margin-top:4px}
+/* === FOOTER === */
+footer {
+  background: #070e1d; padding: 52px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 20px;
+}
+footer .nav-logo-text { font-size: 18px; }
+.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); transition: color 0.2s;
+}
+.footer-links a:hover { color: #c8af64; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.22); }
 
-/* PRICING */
-.pricing-section{padding:100px 2rem;background:var(--light)}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
-.pricing-card{background:var(--white);border-radius:16px;padding:2.5rem;border:2px solid rgba(0,0,0,0.06);position:relative;transition:all 0.3s}
-.pricing-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,37,64,0.1)}
-.pricing-card.featured{border-color:var(--accent);box-shadow:0 8px 32px rgba(27,108,224,0.12)}
-.pricing-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;padding:4px 18px;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.5px;white-space:nowrap}
-.pricing-card .plan-name{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:0.5rem}
-.pricing-card .plan-price{font-size:2.4rem;font-weight:800;color:var(--navy);margin-bottom:0.2rem;letter-spacing:-1px}
-.pricing-card .plan-price span{font-size:1rem;font-weight:500;color:var(--muted)}
-.pricing-card .plan-period{font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem}
-.pricing-card .plan-desc{font-size:0.92rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;padding-bottom:1.5rem;border-bottom:1px solid rgba(0,0,0,0.06)}
-.plan-features{list-style:none;padding:0;margin-bottom:2rem}
-.plan-features li{padding:0.45rem 0;font-size:0.88rem;color:var(--text);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.plan-features li::before{content:'â';color:var(--green);font-weight:700;flex-shrink:0}
-.pricing-card .btn{width:100%;justify-content:center;padding:12px 24px}
-.pricing-card.featured .btn-primary{background:var(--accent);color:white}
-
-/* CTA */
-.cta-section{padding:100px 2rem;background:linear-gradient(135deg,var(--navy) 0%,#142f54 100%);text-align:center;color:white}
-.cta-section h2{font-size:2.2rem;font-weight:800;margin-bottom:1rem;letter-spacing:-0.5px}
-.cta-section p{font-size:1.1rem;opacity:0.8;max-width:550px;margin:0 auto 2.5rem}
-.cta-section .btn-primary{background:white;color:var(--navy);font-size:1rem;padding:14px 36px}
-.cta-section .btn-primary:hover{background:#f0f5ff;box-shadow:0 4px 20px rgba(255,255,255,0.2)}
-.cta-email{font-size:1.15rem;margin-top:1.5rem;opacity:0.9}
-.cta-email a{color:white;text-decoration:underline;text-underline-offset:3px}
-
-/* FOOTER */
-footer{padding:2.5rem 2rem;background:var(--navy);text-align:center;color:rgba(255,255,255,0.5);font-size:0.82rem}
-footer a{color:rgba(255,255,255,0.7);text-decoration:none}
-
-/* FORM */
-.signup-form{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto}
-.signup-form input{padding:14px 20px;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:white;border-radius:8px;font-size:0.95rem;flex:1;min-width:220px;outline:none;font-family:inherit}
-.signup-form input::placeholder{color:rgba(255,255,255,0.4)}
-.signup-form input:focus{border-color:rgba(255,255,255,0.4)}
-
-@media(max-width:768px){
-  nav{padding:0 1rem}
-  .nav-links{display:none}
-  .hero h1{font-size:2rem}
-  .hero-stats{gap:1.5rem}
-  .diff-grid{grid-template-columns:1fr}
-  .hero-cta{flex-direction:column;align-items:center}
+/* === RESPONSIVE === */
+@media (max-width: 960px) {
+  #navbar { padding: 0 24px; }
+  nav { display: none; }
+  .hero { padding: 120px 24px 80px; }
+  .hero-stats { flex-wrap: wrap; }
+  .stat-item { padding: 18px 28px; border-right: none; }
+  .coi-section { padding: 80px 24px; }
+  .coi-grid { grid-template-columns: 1fr; }
+  .coi-card { border-right: none !important; border-bottom: 1px solid #e0dbd0; }
+  .coi-card:last-child { border-bottom: none; }
+  .services-section { padding: 80px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .contact-section { padding: 80px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+  .modal-overlay { padding: 16px; }
+  .modal-header, .modal-body { padding-left: 24px; padding-right: 24px; }
+  .plans-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">GPAN <span>by Axi Navigation</span></div>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#who">Who It's For</a>
-    <a href="#why">Why GPAN</a>
-    <a href="#pricing">Plans</a>
-    <a href="#access" class="btn btn-primary">Request Early Access</a>
-  </div>
-</nav>
+<!-- ========== NAVBAR ========== -->
+<header id="navbar">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+      <!-- Three navigation pins -->
+      <path d="M62 28C62 28 50 72 50 80C50 87 55 94 62 94C69 94 74 87 74 80C74 72 62 28 62 28Z" fill="#9a9a9a"/>
+      <path d="M122 18C122 18 106 72 106 82C106 91 112 100 122 100C132 100 138 91 138 82C138 72 122 18 122 18Z" fill="#7db5de"/>
+      <path d="M200 8C200 8 176 72 176 88C176 100 186 112 200 112C214 112 224 100 224 88C224 72 200 8 200 8Z" fill="#2b6a96"/>
+      <!-- Swooping line -->
+      <path d="M20 118C20 118 60 100 140 108C220 116 280 96 310 86" stroke="#1a2f54" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <!-- Text not included — handled by CSS text -->
+    </svg>
+    <div class="nav-logo-text">Navigation <span>Axi</span></div>
+  </a>
+  <nav>
+    <a href="#cost-of-inaction">Why Now</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Request Access</a>
+  </nav>
+</header>
 
+<!-- ========== HERO ========== -->
 <section class="hero">
-  <div class="hero-badge">NOW IN EARLY ACCESS</div>
-  <h1>See where your drug stands â <em>across 100 markets</em></h1>
-  <p>GPAN maps the reimbursement status of 202 innovative drugs across 100 global pharma markets. One interactive map. Real-time intelligence. No spreadsheet hunting.</p>
-  <div class="hero-cta">
-    <a href="#access" class="btn btn-primary">Request Early Access â</a>
-    <a href="#features" class="btn btn-outline">See How It Works</a>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Global Health Intelligence Platform</div>
+    <h1>The intelligence layer between<br><em>approval</em> and <em>access</em></h1>
+    <p class="hero-sub">Navigation Axi provides pharmaceutical, medtech, and gene therapy executives with the intelligence infrastructure to launch faster, navigate policy, reach patients, and outmanoeuvre the competition — across every market that matters.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Request Early Access</a>
+      <a href="#services" class="btn-outline-w">Explore Services</a>
+    </div>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">202</div><div class="label">Drugs Tracked</div></div>
-    <div class="hero-stat"><div class="num">100</div><div class="label">Global Markets</div></div>
-    <div class="hero-stat"><div class="num">20,200</div><div class="label">DrugâMarket Pairs</div></div>
-    <div class="hero-stat"><div class="num">5</div><div class="label">Reimbursement Statuses</div></div>
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Intelligence Modules</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">578</div>
+      <div class="stat-label">Days Avg. Access Delay (2024)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$24M</div>
+      <div class="stat-label">Revenue Lost / Month of Delay</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">80+</div>
+      <div class="stat-label">Global Agencies Monitored</div>
+    </div>
   </div>
 </section>
 
-<section class="screenshot-section" id="features">
-  <div class="screenshot-wrapper">
-    <img src="gpan-app-screenshot.png" alt="GPAN Global Patient Access Navigator â interactive world map showing reimbursement status of Opdivo across 100 markets" loading="lazy">
+<!-- ========== COST OF INACTION ========== -->
+<section class="coi-section" id="cost-of-inaction">
+  <div class="coi-header">
+    <div class="eyebrow">The Cost of Inaction</div>
+    <h2>What happens when intelligence is fragmented — or absent</h2>
+    <p>Market access is becoming harder, not easier. The average time from drug approval to patient access reached <strong>578 days</strong> in 2024 — and fewer than 46% of centrally approved medicines are now available to patients, down from 48% in 2019. Here's what that costs.</p>
   </div>
-  <div class="legend-bar">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Fully Reimbursed</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Partially Reimbursed</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div>Under Appraisal</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Not Submitted</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Declined</div>
+  <div class="coi-grid">
+    <div class="coi-card">
+      <div class="coi-icon">⏱</div>
+      <div class="coi-figure">$24M / month</div>
+      <h4>Revenue Evaporated Per Month of Delay</h4>
+      <p>A single day of delayed market entry costs approximately $800K in lost specialty drug sales. Every month without access in a target market is $24M in revenue that never recovers.</p>
+      <div class="coi-source">Source: Tufts CSDD, 2023</div>
+    </div>
+    <div class="coi-card">
+      <div class="coi-icon">📉</div>
+      <div class="coi-figure">578 days</div>
+      <h4>Average Approval-to-Access Gap (2024)</h4>
+      <p>The time from regulatory approval to actual patient access has now reached 578 days on average — nearly 20 months. That gap is growing, not shrinking.</p>
+      <div class="coi-source">Source: EFPIA Patient W.A.I.T. Indicator, 2024</div>
+    </div>
+    <div class="coi-card">
+      <div class="coi-icon">🚫</div>
+      <div class="coi-figure">34%</div>
+      <h4>Drugs That Miss Launch Forecasts</h4>
+      <p>One in three drugs launched between 2012–2021 missed their revenue targets — with 57% of those failures attributable directly to limited market access.</p>
+      <div class="coi-source">Source: Deloitte/IQVIA Market Access Study</div>
+    </div>
+    <div class="coi-card">
+      <div class="coi-icon">💊</div>
+      <div class="coi-figure">$300B</div>
+      <h4>Lost Annually to Non-Adherence</h4>
+      <p>More than $300B in global treatment value is destroyed each year by prescription abandonment and non-adherence — up to 69% abandonment for specialty drugs with high out-of-pocket costs.</p>
+      <div class="coi-source">Source: McKesson / IQVIA</div>
+    </div>
+    <div class="coi-card">
+      <div class="coi-icon">📋</div>
+      <div class="coi-figure">40%</div>
+      <h4>HTA Submissions Rejected or Restricted</h4>
+      <p>Up to 40% of Health Technology Assessment submissions face rejection or restrictions in major markets — each failed submission adds 18+ months before a re-attempt is possible.</p>
+      <div class="coi-source">Source: BMC/PMC Multi-Country HTA Analysis</div>
+    </div>
+    <div class="coi-card">
+      <div class="coi-icon">🔍</div>
+      <div class="coi-figure">6–18 months</div>
+      <h4>Competitive Shift Detection Gap</h4>
+      <p>Market share shifts happen 6–18 months before companies detect them. Without real-time intelligence, organisations are always repositioning too late — losing windows that never reopen.</p>
+      <div class="coi-source">Source: AlphaSense/BiopharmaVantage CI, 2026</div>
+    </div>
   </div>
 </section>
 
-<section class="value-section">
+<!-- ========== SERVICES ========== -->
+<section class="services-section" id="services">
   <div class="section-header">
-    <h2>Market access intelligence â in 10 seconds, not 10 days</h2>
-    <p>Filter by therapeutic area, drug category, manufacturer, or launch year. Click any drug and see its global reimbursement map instantly.</p>
+    <div class="eyebrow">Our Intelligence Suite</div>
+    <h2>Six modules. One platform.<br>Complete market command.</h2>
+    <p>Every module was designed to close a specific intelligence gap that costs pharmaceutical, medtech, and gene therapy companies revenue, positioning, and patients. Click any module to explore pricing.</p>
   </div>
-  <div class="value-grid">
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(68,114,196,0.1)">ðºï¸</div>
-      <h3>Interactive World Map</h3>
-      <p>Color-coded reimbursement status for every drug across 100 countries. Hover for details. Spot patterns no spreadsheet reveals.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(112,173,71,0.1)">â¡</div>
-      <h3>Instant Filtering</h3>
-      <p>Search by brand or INN. Filter by therapeutic area, category, manufacturer, or launch year. Find what you need in seconds.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(237,125,49,0.1)">ð</div>
-      <h3>Portfolio-Level View</h3>
-      <p>See your entire portfolio's global coverage at a glance. Identify gaps, compare competitors, and prioritize where to invest next.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(255,217,102,0.15)">ð¯</div>
-      <h3>White Space Detection</h3>
-      <p>"Not Submitted" is the biggest barrier â not "Declined." GPAN shows where submission strategy matters most.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(229,57,53,0.08)">ð</div>
-      <h3>Competitive Benchmarking</h3>
-      <p>See where competitors have access you don't. Benchmark reimbursement speed across therapeutic areas and market tiers.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon" style="background:rgba(10,37,64,0.06)">ð</div>
-      <h3>Drug Detail Cards</h3>
-      <p>INN, therapeutic area, category, manufacturer, launch year, peak revenue, and annual cost â all at your fingertips for every drug.</p>
-    </div>
-  </div>
-</section>
+  <div class="services-grid">
 
-<section class="audience-section" id="who">
-  <div class="section-header">
-    <h2>Built for the people who move the needle</h2>
-    <p>Whether you're setting strategy or executing on the ground, GPAN gives you the view you need.</p>
-  </div>
-  <div class="audience-grid">
-    <div class="audience-card">
-      <div class="role">CEO & Board</div>
-      <h3>Portfolio coverage at a glance</h3>
-      <p>See where your portfolio reaches patients â and where it doesn't. Prioritize the next dollar of market access investment by patient impact.</p>
-    </div>
-    <div class="audience-card">
-      <div class="role">Global Access & HEOR</div>
-      <h3>Stop rebuilding landscapes</h3>
-      <p>GPAN gives you the baseline so your team focuses on HTA strategy, not data collection. Know exactly where evidence packages are needed most.</p>
-    </div>
-    <div class="audience-card">
-      <div class="role">Commercial & Marketing</div>
-      <h3>Launch with reimbursement reality</h3>
-      <p>Align launch sequencing with market readiness. Know which markets are ready, stalled, or where competitors already have access you don't.</p>
-    </div>
-    <div class="audience-card">
-      <div class="role">Patient Advocacy & Comms</div>
-      <h3>Make access gaps visible</h3>
-      <p>When 45 of 100 markets show "Not Submitted" for a life-saving therapy, that's not a data point â it's a call to action. Turn data into narrative.</p>
-    </div>
-  </div>
-</section>
-
-<section class="diff-section" id="why">
-  <div class="section-header">
-    <h2>Why GPAN over existing tools?</h2>
-    <p>Most intelligence platforms tell you what happened. GPAN shows you what's happening â and where the white space is.</p>
-  </div>
-  <div class="diff-grid">
-    <div class="diff-before">
-      <h3>Traditional Intelligence</h3>
-      <ul class="diff-list">
-        <li>Quarterly PDF reports, outdated on arrival</li>
-        <li>Five database logins for five different views</li>
-        <li>Analyst-level subscriptions, analyst-level complexity</li>
-        <li>Weeks to compile a global landscape</li>
-        <li>80-slide decks that lose the C-suite by slide 12</li>
-      </ul>
-    </div>
-    <div class="diff-after">
-      <h3>GPAN Intelligence</h3>
-      <ul class="diff-list">
-        <li>Interactive map updated in real time</li>
-        <li>One platform, one view, one click</li>
-        <li>Built for decision-makers, not just analysts</li>
-        <li>10 seconds to see any drug's global status</li>
-        <li>One map that tells the story instantly</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="speed-section">
-  <div class="section-header">
-    <h2>Get answers in days, not months</h2>
-    <p>Traditional consulting engagements take 8â12 weeks and $150K+ to deliver a global reimbursement landscape. GPAN intelligence reports deliver the same insight â faster, sharper, and at a fraction of the cost.</p>
-  </div>
-  <div class="speed-grid">
-    <div class="speed-item">
-      <div class="time old">8â12 weeks</div>
-      <div class="desc">Traditional consulting</div>
-    </div>
-    <div class="speed-item">
-      <div class="time new">5 business days</div>
-      <div class="desc">GPAN intelligence report</div>
-    </div>
-  </div>
-</section>
-
-<section class="pricing-section" id="pricing">
-  <div class="section-header">
-    <h2>Intelligence reports, not software licenses</h2>
-    <p>We deliver board-ready market access intelligence reports tailored to your portfolio. Pick the plan that fits your decision cycle.</p>
-  </div>
-  <div class="pricing-grid">
-
-    <div class="pricing-card">
-      <div class="plan-name">Essentials</div>
-      <div class="plan-price">$5,000 <span>per report</span></div>
-      <div class="plan-period">One-time delivery</div>
-      <div class="plan-desc">A focused snapshot for a single drug across all 100 markets â ideal for launch planning or board presentations.</div>
-      <ul class="plan-features">
-        <li>Single drug Ã 100 markets</li>
-        <li>Reimbursement status + HTA timeline</li>
-        <li>Competitive positioning overview</li>
-        <li>PDF report + Excel data export</li>
-        <li>Delivered in 5 business days</li>
-      </ul>
-      <a href="mailto:contact@axinavigation.com?subject=GPAN Essentials â Inquiry" class="btn btn-outline">Get Started</a>
+    <div class="service-card" onclick="openPricing('gain')">
+      <div class="svc-tag">Module 01</div>
+      <h3>GAiN</h3>
+      <div class="svc-subtitle">Global Access Intelligence</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>Each month of delayed market entry costs an estimated <strong>$24M in lost revenue</strong>. Only 40% of products reach 5+ markets within 24 months of first approval.</p>
+      </div>
+      <p class="svc-solution">Real-time payer landscapes, distributor readiness, pricing windows, and regulatory pathway intelligence — so your launch sequence is deliberate, swift, and commercially protected across all target geographies.</p>
+      <button class="view-plans-btn">View Plans →</button>
     </div>
 
-    <div class="pricing-card featured">
-      <div class="pricing-badge">MOST POPULAR</div>
-      <div class="plan-name">Professional</div>
-      <div class="plan-price">$15,000 <span>/ quarter</span></div>
-      <div class="plan-period">Billed quarterly</div>
-      <div class="plan-desc">Ongoing intelligence for teams managing multi-drug portfolios â with competitive overlays and strategic recommendations.</div>
-      <ul class="plan-features">
-        <li>Up to 15 drugs per quarter</li>
-        <li>Competitive landscape overlay</li>
-        <li>Quarterly trend + gap analysis</li>
-        <li>Launch sequencing recommendations</li>
-        <li>Dedicated analyst support</li>
-        <li>PDF + Excel + PowerPoint deliverables</li>
-      </ul>
-      <a href="mailto:contact@axinavigation.com?subject=GPAN Professional â Inquiry" class="btn btn-primary">Get Started</a>
+    <div class="service-card" onclick="openPricing('egov')">
+      <div class="svc-tag">Module 02</div>
+      <h3>eGov</h3>
+      <div class="svc-subtitle">Electronic Government Affairs</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>A single missed regulatory update can delay or block market access for <strong>12–18 months</strong>. Manual monitoring of 80+ agencies is operationally unsustainable.</p>
+      </div>
+      <p class="svc-solution">Automated surveillance of 80+ global health authorities with AI-powered alerts on legislation, reimbursement policy shifts, and advocacy windows — so your government affairs teams are perpetually ahead of the curve.</p>
+      <button class="view-plans-btn">View Plans →</button>
     </div>
 
-    <div class="pricing-card">
-      <div class="plan-name">Enterprise</div>
-      <div class="plan-price">$48,000 <span>/ year</span></div>
-      <div class="plan-period">Billed annually</div>
-      <div class="plan-desc">Full portfolio intelligence for global pharma teams â unlimited drugs, monthly updates, and executive-level strategy support.</div>
-      <ul class="plan-features">
-        <li>Full portfolio â unlimited drugs</li>
-        <li>Monthly updated reports</li>
-        <li>Custom deep-dives by TA or region</li>
-        <li>Board-ready executive summaries</li>
-        <li>Priority analyst access</li>
-        <li>Quarterly strategy calls</li>
-      </ul>
-      <a href="mailto:contact@axinavigation.com?subject=GPAN Enterprise â Inquiry" class="btn btn-outline">Get Started</a>
+    <div class="service-card" onclick="openPricing('patnav')">
+      <div class="svc-tag">Module 03</div>
+      <h3>PatNav</h3>
+      <div class="svc-subtitle">Patient Navigator</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>Up to <strong>69% of specialty prescriptions are abandoned</strong> before first fill. More than $300B in treatment value is lost annually to non-adherence and access barriers.</p>
+      </div>
+      <p class="svc-solution">End-to-end patient navigation covering prior authorisation, co-pay support, adherence monitoring, and real-world evidence generation — protecting patient outcomes and commercial returns simultaneously.</p>
+      <button class="view-plans-btn">View Plans →</button>
+    </div>
+
+    <div class="service-card" onclick="openPricing('ci-private')">
+      <div class="svc-tag">Module 04</div>
+      <h3>CrossIntell Private</h3>
+      <div class="svc-subtitle">Private Healthcare Intelligence</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>Market share shifts happen <strong>6–18 months before companies detect them</strong>. Reactive intelligence means responding too late — wasting spend and ceding positioning windows.</p>
+      </div>
+      <p class="svc-solution">Dedicated, organisation-specific competitive intelligence — custom market models, real-time share tracking, and forward-looking scenario planning — aligned to your therapeutic area, geography, and strategic priorities.</p>
+      <button class="view-plans-btn">View Plans →</button>
+    </div>
+
+    <div class="service-card" onclick="openPricing('ci-public')">
+      <div class="svc-tag">Module 05</div>
+      <h3>CrossIntell Public</h3>
+      <div class="svc-subtitle">Public Healthcare Intelligence</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>Up to <strong>40% of HTA submissions are restricted or rejected</strong>. P&R delays rank among the top five negative business factors cited by senior pharma executives.</p>
+      </div>
+      <p class="svc-solution">Real-time public market intelligence across 30+ healthcare systems — reimbursement decisions, payer policy feeds, and competitive positioning data — so access teams never negotiate underprepared.</p>
+      <button class="view-plans-btn">View Plans →</button>
+    </div>
+
+    <div class="service-card" onclick="openPricing('hta-axi')">
+      <div class="svc-tag">Module 06</div>
+      <h3>HTA-Axi</h3>
+      <div class="svc-subtitle">Health Economics &amp; Outcomes Research</div>
+      <div class="pain-box">
+        <div class="pain-label">The Challenge</div>
+        <p>A failed HTA submission forces a restart. Second submissions add <strong>18+ months</strong> — with incomplete economic models the leading cause of outright rejection.</p>
+      </div>
+      <p class="svc-solution">Full-cycle HEOR support: economic modelling, budget impact analysis, value dossier development, and local payer alignment strategy — engineered for first-submission success across all target markets.</p>
+      <button class="view-plans-btn">View Plans →</button>
     </div>
 
   </div>
 </section>
 
-<section class="cta-section" id="access">
-  <h2>Ready to see your portfolio's global access landscape?</h2>
-  <p>Request a sample report or schedule a 15-minute walkthrough with our team. We respond within 24 hours.</p>
-  <a href="mailto:contact@axinavigation.com?subject=GPAN Early Access â Request" class="btn btn-primary">Request Early Access â</a>
-  <div class="cta-email">Or email us directly at <a href="mailto:contact@axinavigation.com">contact@axinavigation.com</a></div>
+<!-- ========== PRICING MODAL ========== -->
+<div class="modal-overlay" id="pricingModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-header">
+      <div class="modal-eyebrow" id="modal-eyebrow"></div>
+      <h2 id="modal-title"></h2>
+      <p class="modal-subtitle" id="modal-subtitle"></p>
+    </div>
+    <div class="modal-body">
+      <div class="plans-grid">
+
+        <!-- Single Touch-Point -->
+        <div class="plan-card">
+          <div class="plan-name">Single Touch-Point</div>
+          <div class="plan-price">$25,000</div>
+          <div class="plan-price-sub">one-time engagement</div>
+          <ul class="plan-features" id="plan1-features"></ul>
+          <a href="#contact" class="plan-cta" onclick="closeModal()">Get Started</a>
+        </div>
+
+        <!-- Monthly Subscription -->
+        <div class="plan-card featured">
+          <div class="plan-name">Monthly Subscription</div>
+          <div class="plan-price">$15,000</div>
+          <div class="plan-price-sub">per month</div>
+          <ul class="plan-features" id="plan2-features"></ul>
+          <a href="#contact" class="plan-cta" onclick="closeModal()">Start Subscription</a>
+        </div>
+
+        <!-- Corporate Full-Suite -->
+        <div class="plan-card">
+          <div class="plan-name">Corporate Full-Suite</div>
+          <div class="plan-price" style="font-size:32px;">Custom</div>
+          <div class="plan-price-sub">request a quotation</div>
+          <ul class="plan-features" id="plan3-features"></ul>
+          <a href="mailto:contact@axinavigation.com?subject=Corporate Full-Suite Inquiry" class="plan-cta">Request Quotation</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<section class="about-strip" id="about">
+  <div class="about-text">
+    <div class="eyebrow">About Navigation Axi</div>
+    <h2>Built for the decisions that shape markets</h2>
+    <p>Navigation Axi was founded to close the intelligence gap between regulatory approval and patient access — the critical window where commercial value is won or lost, where competitive positioning is established, and where patients either reach treatment or fall through the cracks.</p>
+    <p>We work exclusively with pharmaceutical, medtech, and gene therapy executives who operate at corporate, regional, and local scale — and who require intelligence that moves as fast as their markets do.</p>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar">
+      <div class="pillar-ico">◈</div>
+      <h4>Unified Platform</h4>
+      <p>Six intelligence modules in one environment. No fragmented vendor stack. No blind spots.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-ico">◈</div>
+      <h4>Real-Time Data</h4>
+      <p>Continuous monitoring of agencies, markets, and competitive signals — insights in hours, not quarters.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-ico">◈</div>
+      <h4>Patient-Centric</h4>
+      <p>Intelligence that traces from payer decision to patient outcome — closing the commercial-clinical loop.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-ico">◈</div>
+      <h4>Confidential by Design</h4>
+      <p>Enterprise-grade data governance. Your intelligence is yours — never shared, never leveraged.</p>
+    </div>
+  </div>
 </section>
 
+<!-- ========== CONTACT ========== -->
+<section class="contact-section" id="contact">
+  <div class="eyebrow">Get in Touch</div>
+  <h2>Request Early Access</h2>
+  <p>We are selectively onboarding partners across pharmaceutical, medtech, and gene therapy sectors. Tell us about your market access challenge.</p>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="fg"><label>First Name</label><input type="text" placeholder="First name" required></div>
+      <div class="fg"><label>Last Name</label><input type="text" placeholder="Last name" required></div>
+    </div>
+    <div class="fg"><label>Corporate Email</label><input type="email" placeholder="your@company.com" required></div>
+    <div class="form-row">
+      <div class="fg"><label>Company</label><input type="text" placeholder="Company" required></div>
+      <div class="fg"><label>Role / Title</label><input type="text" placeholder="VP, Director, C-Suite…"></div>
+    </div>
+    <div class="fg">
+      <label>Module of Interest</label>
+      <select>
+        <option value="">Select a module…</option>
+        <option>GAiN — Global Access Intelligence</option>
+        <option>eGov — Electronic Government Affairs</option>
+        <option>PatNav — Patient Navigator</option>
+        <option>CrossIntell Private Healthcare</option>
+        <option>CrossIntell Public Healthcare</option>
+        <option>HTA-Axi — Health Economics</option>
+        <option>Full Platform</option>
+      </select>
+    </div>
+    <div class="fg"><label>Message</label><textarea placeholder="Describe your most pressing market access challenge…"></textarea></div>
+    <button type="submit" class="form-submit">Submit Request →</button>
+  </form>
+</section>
+
+<!-- ========== FOOTER ========== -->
 <footer>
-  <p>Â© 2026 Axi Navigation â Global Patient Access Navigator (GPAN)</p>
-  <p style="margin-top:6px"><a href="mailto:contact@axinavigation.com">contact@axinavigation.com</a></p>
+  <div class="nav-logo-text">Navigation <span>Axi</span></div>
+  <div class="footer-links">
+    <a href="#cost-of-inaction">Why Now</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="mailto:contact@axinavigation.com">contact@axinavigation.com</a>
+  </div>
+  <div class="footer-copy">© 2026 Navigation Axi. All rights reserved.</div>
 </footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+/* ——— SERVICE DATA ——— */
+const serviceData = {
+  'gain': {
+    eyebrow: 'Module 01',
+    title: 'GAiN — Global Access Intelligence',
+    subtitle: 'Real-time market access intelligence across all target geographies',
+    plan1: [
+      'Single-country market access assessment',
+      'Payer landscape and pricing window analysis',
+      'Distributor network mapping',
+      'Competitive entry timeline report',
+      'Executive summary and recommendation deck'
+    ],
+    plan2: [
+      'Multi-country real-time access dashboards',
+      'Continuous payer and policy monitoring',
+      'Launch sequence optimisation model',
+      'Monthly executive intelligence briefing',
+      'Competitive entry alerts and response plans',
+      'Dedicated analyst support'
+    ],
+    plan3: [
+      'Full portfolio market access intelligence',
+      'All countries and therapeutic areas covered',
+      'Custom data integrations and API access',
+      'Embedded analyst team (on-demand)',
+      'Board-level quarterly strategy reviews',
+      'Priority response SLA (<24h)'
+    ]
+  },
+  'egov': {
+    eyebrow: 'Module 02',
+    title: 'eGov — Electronic Government Affairs',
+    subtitle: 'Automated monitoring of 80+ global health authorities and policy bodies',
+    plan1: [
+      'Single-region regulatory scan',
+      'Policy and legislation impact assessment',
+      'Advocacy window identification',
+      'Stakeholder mapping report',
+      'Executive briefing document'
+    ],
+    plan2: [
+      'Multi-region AI-powered policy alerts',
+      'Real-time legislation and guidance tracking',
+      'Comment period and advocacy calendar',
+      'Monthly government affairs briefing',
+      'Regulatory timeline intelligence',
+      'Dedicated policy analyst'
+    ],
+    plan3: [
+      'Global 80+ agency surveillance',
+      'Custom alert rules and escalation protocols',
+      'Full stakeholder engagement tracking',
+      'Integrated with internal GR/GA systems',
+      'Board-level regulatory risk reporting',
+      'Priority response SLA (<24h)'
+    ]
+  },
+  'patnav': {
+    eyebrow: 'Module 03',
+    title: 'PatNav — Patient Navigator',
+    subtitle: 'End-to-end patient navigation from prescription to adherence',
+    plan1: [
+      'Single-product patient journey mapping',
+      'Prior authorisation workflow assessment',
+      'Co-pay barrier analysis',
+      'Adherence risk identification',
+      'Recommendations report'
+    ],
+    plan2: [
+      'Active patient navigation platform access',
+      'Prior authorisation automation',
+      'Co-pay and assistance program integration',
+      'Real-time adherence monitoring',
+      'Monthly patient access KPI dashboard',
+      'Dedicated patient access coordinator'
+    ],
+    plan3: [
+      'Full portfolio patient navigation',
+      'Custom RWE data capture pipeline',
+      'HCP-patient communication tools',
+      'Integration with EHR and pharmacy systems',
+      'Quarterly outcomes and value reporting',
+      'Priority support SLA (<24h)'
+    ]
+  },
+  'ci-private': {
+    eyebrow: 'Module 04',
+    title: 'CrossIntell Private — Healthcare Intelligence',
+    subtitle: 'Dedicated competitive intelligence for your organisation',
+    plan1: [
+      'Single-TA competitive landscape report',
+      'Market share positioning analysis',
+      'Competitor pipeline and launch tracker',
+      'SWOT and strategic response assessment',
+      'Executive presentation deck'
+    ],
+    plan2: [
+      'Real-time competitive intelligence dashboard',
+      'Continuous market share movement tracking',
+      'Competitor launch and pipeline monitoring',
+      'Monthly strategic intelligence briefing',
+      'Scenario planning and response modelling',
+      'Dedicated CI analyst'
+    ],
+    plan3: [
+      'Full portfolio competitive intelligence',
+      'Multi-TA and multi-geography coverage',
+      'Custom KPI tracking and alerting',
+      'War-gaming and strategy simulations',
+      'Board-level competitive reviews',
+      'Priority response SLA (<24h)'
+    ]
+  },
+  'ci-public': {
+    eyebrow: 'Module 05',
+    title: 'CrossIntell Public — Healthcare Intelligence',
+    subtitle: 'Real-time intelligence across 30+ public healthcare systems',
+    plan1: [
+      'Single-market reimbursement landscape report',
+      'HTA decision tracking and analysis',
+      'Payer policy impact assessment',
+      'Competitive benchmarking (one TA)',
+      'Executive summary document'
+    ],
+    plan2: [
+      'Multi-market real-time reimbursement dashboards',
+      'Continuous HTA and payer policy tracking',
+      'Competitive positioning intelligence',
+      'Monthly market access briefing',
+      'API access for system integration',
+      'Dedicated public market analyst'
+    ],
+    plan3: [
+      'Full 30+ healthcare system coverage',
+      'All therapeutic areas monitored',
+      'Custom alert and reporting pipelines',
+      'Historical decision database access',
+      'Quarterly payer strategy reviews',
+      'Priority response SLA (<24h)'
+    ]
+  },
+  'hta-axi': {
+    eyebrow: 'Module 06',
+    title: 'HTA-Axi — Health Economics & Outcomes Research',
+    subtitle: 'Full-cycle HEOR and HTA dossier services for first-submission success',
+    plan1: [
+      'Single-market HTA gap analysis',
+      'Budget impact or cost-effectiveness model',
+      'Value narrative development',
+      'Evidence gap assessment',
+      'Dossier-ready deliverable'
+    ],
+    plan2: [
+      'Multi-market HTA submission support',
+      'Ongoing economic model maintenance',
+      'Systematic literature review updates',
+      'Monthly HEOR intelligence briefing',
+      'Local payer alignment advisory',
+      'Dedicated health economist'
+    ],
+    plan3: [
+      'Full portfolio HEOR and HTA support',
+      'Global dossier strategy and execution',
+      'Real-world evidence programme design',
+      'Expert advisory board coordination',
+      'Board-level value story development',
+      'Priority response SLA (<24h)'
+    ]
+  }
+};
+
+/* ——— MODAL FUNCTIONS ——— */
+function openPricing(serviceKey) {
+  const d = serviceData[serviceKey];
+  if (!d) return;
+
+  document.getElementById('modal-eyebrow').textContent = d.eyebrow;
+  document.getElementById('modal-title').textContent = d.title;
+  document.getElementById('modal-subtitle').textContent = d.subtitle;
+
+  function buildFeatures(containerId, features) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = features.map(f => '<li>' + f + '</li>').join('');
+  }
+
+  buildFeatures('plan1-features', d.plan1);
+  buildFeatures('plan2-features', d.plan2);
+  buildFeatures('plan3-features', d.plan3);
+
+  document.getElementById('pricingModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('pricingModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+document.getElementById('pricingModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+/* ——— FORM HANDLER ——— */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(function() {
+    window.location.href = 'mailto:contact@axinavigation.com?subject=Early Access Request — Navigation Axi&body=Hello, I am interested in early access to Navigation Axi.';
+    btn.textContent = 'Request Sent ✓';
+  }, 800);
+}
+
+/* ——— NAVBAR SCROLL EFFECT ——— */
+window.addEventListener('scroll', function() {
+  var nb = document.getElementById('navbar');
+  if (window.scrollY > 80) {
+    nb.style.boxShadow = '0 4px 24px rgba(0,0,0,0.25)';
+  } else {
+    nb.style.boxShadow = 'none';
+  }
+});
+</script>
 
 </body>
 </html>
